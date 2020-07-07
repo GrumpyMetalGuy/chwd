@@ -17,8 +17,9 @@ impl ChangeWorkingDirectory {
     /// ```rust
     /// use std::env;
     /// use chwd::ChangeWorkingDirectory;
+    /// use std::io;
     ///
-    /// fn main()
+    /// fn main() -> Result<(), std::io::Error>
     /// {
     ///     {
     ///         let _dir_change = ChangeWorkingDirectory::change(&env::temp_dir())?;
@@ -26,9 +27,10 @@ impl ChangeWorkingDirectory {
     ///     }
     ///
     ///     // _dir_change has gone out of scope, you will be back where you started.
+    ///     Ok(())
     /// }
     /// ```
-    pub fn change(new_directory: &impl AsRef<path::Path>) -> std::io::Result<Self> {
+    pub fn change(new_directory: &impl AsRef<path::Path>) -> Result<Self, std::io::Error> {
         let current_working_directory = env::current_dir()?;
 
         env::set_current_dir(new_directory)?;
