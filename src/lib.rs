@@ -1,3 +1,6 @@
+//! Helper library to store your current working directory when changing to a different directory,
+//! then changing back to the original directory once the helper object goes out of scope.
+
 use std::env;
 use std::path;
 
@@ -18,26 +21,33 @@ impl ChangeWorkingDirectory {
     /// fn main()
     /// {
     ///     {
-    ///         let _dir_change = ChangeWorkingDirectory::change(&env::temp_dir());
+    ///         let _dir_change = ChangeWorkingDirectory::change(&env::temp_dir())?;
     ///         // Do something in the temp dir
     ///     }
     ///
     ///     // _dir_change has gone out of scope, you will be back where you started.
     /// }
     /// ```
-    pub fn change(new_directory: &impl AsRef<path::Path>) -> Self {
-        let current_working_directory = env::current_dir().unwrap();
+    pub fn change(new_directory: &impl AsRef<path::Path>) -> std::io::Result<Self> {
+        let current_working_directory = env::current_dir()?;
 
-        env::set_current_dir(new_directory).unwrap();
+        env::set_current_dir(new_directory)?;
 
-        ChangeWorkingDirectory {
+        Ok(ChangeWorkingDirectory {
             previous_directory: current_working_directory,
-        }
+        })
     }
 }
 
 impl Drop for ChangeWorkingDirectory {
     fn drop(&mut self) {
-        env::set_current_dir(&self.previous_directory).unwrap();
+        // Panics in drops are bad, especially if the drop is called when code has panicked
+        // elsewhere already. We'll stick with printing something to stderr for now...
+        if let Err(e) = env::set_current_dir(&self.previous_directory) {
+            eprintln!(
+                "Unable to change directory back to {:?} due to error {}",
+                &self.previous_directory, &e
+            );
+        }
     }
 }
