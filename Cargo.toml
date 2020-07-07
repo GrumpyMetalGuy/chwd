@@ -1,0 +1,7 @@
+[package]
+name = "chwd"
+version = "0.1.0"
+authors = ["GrumpyMetalGuy"]
+edition = "2018"
+
+[dependencies]
