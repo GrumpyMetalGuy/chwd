@@ -13,7 +13,7 @@ impl ChangeWorkingDirectory {
     ///
     /// ```rust
     /// use std::env;
-    /// use chsh::ChangeWorkingDirectory;
+    /// use chwd::ChangeWorkingDirectory;
     ///
     /// fn main()
     /// {
