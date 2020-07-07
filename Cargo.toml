@@ -7,7 +7,7 @@ license-file = "LICENSE"
 description = "Temporarily change current working directory, switching back when finished."
 repository = "https://github.com/GrumpyMetalGuy/chwd"
 readme = "README.md"
-keywords = ["filesystem", "working directory"]
+keywords = ["filesystem", "working-directory"]
 categories = ["filesystem"]
 
 [dependencies]
