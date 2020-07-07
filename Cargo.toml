@@ -3,5 +3,11 @@ name = "chwd"
 version = "0.1.0"
 authors = ["GrumpyMetalGuy"]
 edition = "2018"
+license-file = "LICENSE"
+description = "Temporarily change current working directory, switching back when finished."
+repository = "https://github.com/GrumpyMetalGuy/chwd"
+readme = "README.md"
+keywords = ["filesystem", "working directory"]
+categories = ["filesystem"]
 
 [dependencies]
