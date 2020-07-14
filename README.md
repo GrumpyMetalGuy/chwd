@@ -1,4 +1,4 @@
-# chwd [![Documentation](https://docs.rs/chwd/badge.svg)](https://docs.rs/chwd)
+# chwd [![Build Status](https://travis-ci.org/grumpymetalguy/chwd.svg?branch=master)](https://travis-ci.org/grumpymetalguy/chwd) [![Documentation](https://docs.rs/chwd/badge.svg)](https://docs.rs/chwd)
 Rust library to temporarily change your cwd, then switch it back when you're done.
 
 ## Usage
