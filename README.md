@@ -1,4 +1,5 @@
-# chwd [![Build Status](https://app.travis-ci.com/GrumpyMetalGuy/chwd.svg?branch=master)](https://app.travis-ci.com/GrumpyMetalGuy/chwd) [![Documentation](https://docs.rs/chwd/badge.svg)](https://docs.rs/chwd)
+# chwd 
+[![Rust](https://github.com/GrumpyMetalGuy/chwd/actions/workflows/rust.yml/badge.svg)](https://github.com/GrumpyMetalGuy/chwd/actions/workflows/rust.yml) ![Crates.io Version](https://img.shields.io/crates/v/chwd) ![docs.rs](https://img.shields.io/docsrs/chwd)
 Rust library to temporarily change your cwd, then switch it back when you're done.
 
 ## Usage
